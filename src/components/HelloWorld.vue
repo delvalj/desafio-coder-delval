@@ -5,31 +5,36 @@
   </div>
 
   <div class="tabla">
-    <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Last Name
-      </th>
-      <th>
-        User Age
-      </th>
-    </tr>
-    </thead>
+    <table>
 
-    <tbody>
-    <tr
-        v-for="user in usuarios"
-        :key="user.id"
-    >
-      <td>{{ user.userName }}</td>
-      <td>{{ user.lastName }}</td>
-      <td>{{ user.userAge }}</td>
-    </tr>
-    </tbody>
+      <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Last Name
+        </th>
+        <th>
+          User Age
+        </th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr
+          v-for="user in usuarios"
+          :key="user.id"
+      >
+        <td>{{ user.userName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.userAge }}</td>
+      </tr>
+      </tbody>
+
+    </table>
   </div>
+
 
 </template>
 
@@ -37,7 +42,27 @@
 import {ref, onMounted} from 'vue'
 import axios from "axios";
 
-let usuarios = [];
+let usuarios = [
+  {
+    id: 0,
+    userName: 'PEPE',
+    lastName: 'LUI',
+    userAge: 31
+  },
+  // {
+  //   id: 1,
+  //   userName: 'Eleonor',
+  //   lastName: 'Rigby',
+  //   userAge: 25
+  // },
+  // {
+  //   id: 2,
+  //   userName: 'My',
+  //   lastName: 'Michelle',
+  //   userAge: 47
+  // },
+
+];
 
 // lifecycle hooks
 onMounted(() => {
@@ -64,6 +89,7 @@ function increment() {
 </script>
 
 <style>
+
 button {
   padding: 20px;
   background: #6DC570;
@@ -72,9 +98,13 @@ button {
 
 .tabla {
   padding: 10px;
+  box-shadow: #6DC570 8px 8px 0 2px;
   margin: 10px;
   border: 1px solid black;
   letter-spacing: 2px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 </style>
 
